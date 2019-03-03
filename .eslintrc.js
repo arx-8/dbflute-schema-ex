@@ -1,20 +1,16 @@
 module.exports = {
-  "extends": [
-    "airbnb"
-  ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+  extends: ["airbnb", "plugin:prettier/recommended"],
+  plugins: ["@typescript-eslint"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    sourceType: "module",
+    project: "./tsconfig.json",
   },
-  "env": {
-    "browser": true,
-    "es6": true,
+  env: {
+    browser: true,
+    es6: true,
   },
-  "rules": {
+  rules: {
     "arrow-body-style": "off",
     "import/first": "off",
     "import/no-default-export": "error",
@@ -22,26 +18,35 @@ module.exports = {
     "no-restricted-properties": [
       "error",
       {
-        "property": "innerText",
-        "message": "Use 'textContent' instead. Because 'innerText' is (almost) not recommended."
-      }
+        property: "innerText",
+        message:
+          "Use 'textContent' instead. Because 'innerText' is (almost) not recommended.",
+      },
     ],
     "no-underscore-dangle": [
       "error",
       {
-        "allowAfterSuper": true,
-        "allowAfterThis": true
-      }
+        allowAfterSuper: true,
+        allowAfterThis: true,
+      },
     ],
     "prefer-arrow-callback": [
       "error",
       {
-        "allowNamedFunctions": false,
-        "allowUnboundThis": false
-      }
+        allowNamedFunctions: false,
+        allowUnboundThis: false,
+      },
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        arrowParens: "always",
+        semi: false,
+        trailingComma: "all",
+      },
     ],
 
     // ts と eslint の相性不良？
     "import/no-unresolved": "off",
-  }
+  },
 }

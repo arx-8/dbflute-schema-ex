@@ -1,0 +1,16 @@
+{
+  // フォーマットはeslint.autoFixOnSave(Prettier)に任せるため、エディタ標準のフォーマットは不要
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    // 拡張機能ESLintがtsファイルだと機能しないため、tabだけでも設定しておく
+    "editor.tabSize": 2,
+  },
+}
