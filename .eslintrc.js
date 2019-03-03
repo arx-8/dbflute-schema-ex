@@ -1,5 +1,10 @@
 module.exports = {
-  extends: ["airbnb", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  extends: [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended",
+  ],
   plugins: ["@typescript-eslint", "jest"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -49,5 +54,14 @@ module.exports = {
 
     // ts と eslint の相性不良？
     "import/no-unresolved": "off",
+
+    // plugin:@typescript-eslint/recommended と prettier の相性不良？
+    "@typescript-eslint/indent": "off",
+
+    // constructor のショートハンド（メンバーの省略記法）を使いたいため
+    "@typescript-eslint/no-parameter-properties": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
   },
 }
