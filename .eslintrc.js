@@ -1,6 +1,6 @@
 module.exports = {
-  extends: ["airbnb", "plugin:prettier/recommended"],
-  plugins: ["@typescript-eslint"],
+  extends: ["airbnb", "plugin:jest/recommended", "plugin:prettier/recommended"],
+  plugins: ["@typescript-eslint", "jest"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
@@ -9,6 +9,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    "jest/globals": true,
   },
   rules: {
     "arrow-body-style": "off",
