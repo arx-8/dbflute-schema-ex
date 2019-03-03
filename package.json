@@ -10,6 +10,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "babel-loader": "^8.0.5",
+    "bookmarklet": "^1.0.2",
     "eslint": "^5.15.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -24,8 +25,9 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
+    "build:bl": "bookmarklet dist/bundle.js dist/bookmarklet.txt",
     "build:webpack": "webpack --mode=production",
-    "build": "npm run build:webpack",
+    "build": "npm-run-all --sequential build:webpack build:bl",
     "lint:eslint": "eslint -c .eslintrc.js --fix src/**/*.ts",
     "lint:tsc": "tsc --noEmit",
     "lint": "npm-run-all --parallel lint:eslint lint:tsc",
