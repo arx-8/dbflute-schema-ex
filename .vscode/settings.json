@@ -13,7 +13,8 @@
   "[typescript]": {
     // 今はまだTS + 拡張機能ESLintが正しく動作しないため、拡張機能Prettierに任せる
     "editor.formatOnSave": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "editor.tabSize": 2
   },
   "prettier.eslintIntegration": true
 }
