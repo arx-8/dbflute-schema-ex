@@ -65,5 +65,12 @@ module.exports = {
     "@typescript-eslint/explicit-member-accessibility": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
+
+    /**
+     * ts で許容されてるルールは、ts側を優先して許可する
+     */
+    // ホイスティング
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "off",
   },
 }
