@@ -52,7 +52,9 @@ module.exports = {
       },
     ],
 
-    // ts と eslint の相性不良？
+    /**
+     * ts と eslint の相性不良周りを解消するための設定
+     */
     "import/no-unresolved": "off",
 
     // plugin:@typescript-eslint/recommended と prettier の相性不良？

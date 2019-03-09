@@ -1,3 +1,27 @@
+## Development
+
+### Installation & Build
+
+1. npm i
+2. npm run build
+
+### UnitTest
+
+`npm test`
+
+### Type Check & ESLint & Automatically fix problems
+
+`npm run lint`
+
+### Recommended IDE
+
+Visual Studio Code
+
+#### Required Extensions
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=amatiasq.sort-imports)
+
 ## Ref.
 
 <https://github.com/Microsoft/TypeScript-Babel-Starter>
