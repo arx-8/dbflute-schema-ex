@@ -29,10 +29,23 @@ export const querySelector = (selector: string): HTMLElement | null => {
  *
  * @throws 見つからない | 2要素以上見つかった
  */
-export const querySelectorStrict = (selector: string): HTMLElement => {
+export const querySelectorStrict = <T extends HTMLElement>(
+  selector: string,
+): T => {
   const founds = querySelectorAll(selector)
   if (founds.length === 1) {
-    return founds[0]
+    return founds[0] as any
+  }
+  throw new Error(`Logic Failure: "${selector}" is always 1 element exists`)
+}
+
+export const exQuerySelectorStrict = <T extends HTMLElement>(
+  dom: HTMLElement,
+  selector: string,
+): T => {
+  const founds = dom.querySelectorAll(selector)
+  if (founds.length === 1) {
+    return founds[0] as any
   }
   throw new Error(`Logic Failure: "${selector}" is always 1 element exists`)
 }

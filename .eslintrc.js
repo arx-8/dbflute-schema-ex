@@ -59,6 +59,7 @@ module.exports = {
 
     // plugin:@typescript-eslint/recommended と prettier の相性不良？
     "@typescript-eslint/indent": "off",
+    "@typescript-eslint/member-delimiter-style": "off",
 
     // constructor のショートハンド（メンバーの省略記法）を使いたいため
     "@typescript-eslint/no-parameter-properties": "off",
