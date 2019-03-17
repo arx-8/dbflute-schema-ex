@@ -1,13 +1,13 @@
 import {
-  getButtonId,
   getCloseButtonId,
   getCopyButtonId,
   getDialogId,
+  getShowButtonId,
   getTextareaId,
-  INJECT_HTML_REPLACE_BUTTON_ID,
   INJECT_HTML_REPLACE_CLOSE_BUTTON_ID,
   INJECT_HTML_REPLACE_COPY_BUTTON_ID,
   INJECT_HTML_REPLACE_DIALOG_ID,
+  INJECT_HTML_REPLACE_SHOW_BUTTON_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
   SYSTEM_STATUS_ID,
 } from "../constant/Constants"
@@ -80,9 +80,9 @@ export const injectButtonDoms = (
     {
       const button = exQuerySelectorStrict(
         injWrapper,
-        `#${INJECT_HTML_REPLACE_BUTTON_ID}`,
+        `#${INJECT_HTML_REPLACE_SHOW_BUTTON_ID}`,
       ) as HTMLButtonElement
-      button.id = getButtonId(tableName)
+      button.id = getShowButtonId(tableName)
       button.onclick = createShowSqlBtnEvent(tableName)
     }
     {
