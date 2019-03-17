@@ -1,6 +1,6 @@
 import {
   BUTTON_CLS,
-  CLOSE_BUTTON_WRAPPER_CLS,
+  DIALOG_BUTTONS_WRAPPER_CLS,
   DIALOG_CLS,
   DIALOG_INNER_CLS,
   SYSTEM_STATUS_ID,
@@ -32,12 +32,12 @@ export const systemHtml: HTMLString = {
 #${SYSTEM_STATUS_ID} {
   display: none;
 }
-.${CLOSE_BUTTON_WRAPPER_CLS} {
+.${DIALOG_BUTTONS_WRAPPER_CLS} {
   text-align: right;
   padding-bottom: 4px;
 }
 .${BUTTON_CLS},
-.${CLOSE_BUTTON_WRAPPER_CLS} button {
+.${DIALOG_BUTTONS_WRAPPER_CLS} button {
   border-radius: 3px;
   border: 1px solid #bbb;
   box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;

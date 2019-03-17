@@ -1,10 +1,12 @@
 import {
   getButtonId,
   getCloseButtonId,
+  getCopyButtonId,
   getDialogId,
   getTextareaId,
   INJECT_HTML_REPLACE_BUTTON_ID,
   INJECT_HTML_REPLACE_CLOSE_BUTTON_ID,
+  INJECT_HTML_REPLACE_COPY_BUTTON_ID,
   INJECT_HTML_REPLACE_DIALOG_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
   SYSTEM_STATUS_ID,
@@ -105,6 +107,14 @@ export const injectButtonDoms = (
       closeButton.id = getCloseButtonId(tableName)
       closeButton.onclick = createCloseBtnEvent(tableName)
     }
+    {
+      const copyButton = exQuerySelectorStrict(
+        injWrapper,
+        `#${INJECT_HTML_REPLACE_COPY_BUTTON_ID}`,
+      ) as HTMLButtonElement
+      copyButton.id = getCopyButtonId(tableName)
+      copyButton.onclick = createCopyBtnEvent(tableName)
+    }
 
     const targetId = `#${tableName.value}`
     querySelectorStrict(targetId).appendChild(injWrapper)
@@ -144,6 +154,16 @@ const createCloseBtnEvent = (tableName: TableName): (() => void) => {
       `#${getDialogId(tableName)}`,
     ) as HTMLDialogElement
     modal.close()
+  }
+}
+
+const createCopyBtnEvent = (tableName: TableName): (() => void) => {
+  return () => {
+    const textarea = querySelectorStrict(
+      `#${getTextareaId(tableName)}`,
+    ) as HTMLTextAreaElement
+    textarea.select()
+    getDocument().execCommand("copy")
   }
 }
 
