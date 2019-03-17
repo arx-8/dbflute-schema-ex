@@ -1,8 +1,10 @@
 import {
   getButtonId,
+  getCloseButtonId,
   getDialogId,
   getTextareaId,
   INJECT_HTML_REPLACE_BUTTON_ID,
+  INJECT_HTML_REPLACE_CLOSE_BUTTON_ID,
   INJECT_HTML_REPLACE_DIALOG_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
   SYSTEM_STATUS_ID,
@@ -68,7 +70,7 @@ export const injectButtonDoms = (
         `#${INJECT_HTML_REPLACE_BUTTON_ID}`,
       ) as HTMLButtonElement
       button.id = getButtonId(tableName)
-      button.onclick = createClickEvent(tableName)
+      button.onclick = createShowSqlBtnEvent(tableName)
     }
     {
       const dialog = exQuerySelectorStrict(
@@ -84,13 +86,21 @@ export const injectButtonDoms = (
       ) as HTMLTextAreaElement
       textarea.id = getTextareaId(tableName)
     }
+    {
+      const closeButton = exQuerySelectorStrict(
+        injWrapper,
+        `#${INJECT_HTML_REPLACE_CLOSE_BUTTON_ID}`,
+      ) as HTMLButtonElement
+      closeButton.id = getCloseButtonId(tableName)
+      closeButton.onclick = createCloseBtnEvent(tableName)
+    }
 
     const targetId = `#${tableName.value}`
     querySelectorStrict(targetId).appendChild(injWrapper)
   })
 }
 
-const createClickEvent = (tableName: TableName): (() => void) => {
+const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
   return () => {
     // テーブル自身のカラムを取り出す
     const colList = extractTableColumnList(tableName)
@@ -113,6 +123,16 @@ const createClickEvent = (tableName: TableName): (() => void) => {
       ) as HTMLDialogElement
       modal.show()
     }
+  }
+}
+
+const createCloseBtnEvent = (tableName: TableName): (() => void) => {
+  return () => {
+    // モーダルを閉じる
+    const modal = querySelectorStrict(
+      `#${getDialogId(tableName)}`,
+    ) as HTMLDialogElement
+    modal.close()
   }
 }
 
