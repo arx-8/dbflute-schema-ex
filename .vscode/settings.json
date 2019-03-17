@@ -16,5 +16,14 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2
   },
+  "search.exclude": {
+    "**/dist": true
+  },
+  "files.watcherExclude": {
+    "**/dist/*": true
+  },
+  /**
+   * Extensions
+   */
   "prettier.eslintIntegration": true
 }
