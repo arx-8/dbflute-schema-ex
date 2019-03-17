@@ -29,6 +29,14 @@ import { getDocument } from "./QuerySelector/Document"
  * DOMアクセス全般を書く
  */
 
+/**
+ * dbflute-shcema-htmlなら必ず存在するDOMの存在チェックで、このAppの対象かどうか判定
+ */
+export const isValidAppTarget = (): boolean => {
+  const elm = querySelectorAll(SELECT_TABLE_NAME_QUERY)
+  return elm.length > 0
+}
+
 export const extractSystemStatus = (): SystemStatus => {
   const statusElm = querySelector(`#${SYSTEM_STATUS_ID}`)
   if (statusElm == null) {

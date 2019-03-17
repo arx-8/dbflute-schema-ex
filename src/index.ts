@@ -3,15 +3,22 @@ import {
   extractTableNameList,
   injectButtonDoms,
   injectSystemHtml,
+  isValidAppTarget,
 } from "./data/DomRepository"
 import { showButtonHtml } from "./presentation/ShowButton"
 import { systemHtml } from "./presentation/SystemHtml"
 import { debugLog } from "./util/Logger"
 
 const main = (): void => {
+  if (!isValidAppTarget()) {
+    // dbflute schema html以外で実行された場合は、何もせず終了
+    debugLog("NOP. Cause: No schema html or Invalid.")
+    return
+  }
+
   if (extractSystemStatus() === "INJECTED") {
     // 既に実行済みの場合、何もせず終了
-    debugLog("NOP")
+    debugLog("NOP. Cause: Already injected.")
     return
   }
 
