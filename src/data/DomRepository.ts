@@ -5,6 +5,7 @@ import {
   INJECT_HTML_REPLACE_BUTTON_ID,
   INJECT_HTML_REPLACE_DIALOG_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
+  SYSTEM_STATUS_ID,
 } from "../constant/Constants"
 import {
   getSelectColumnsQuery,
@@ -12,10 +13,11 @@ import {
 } from "../constant/SchemaHtml"
 import { ColumnName } from "../domain/ColumnName"
 import { TableName } from "../domain/TableName"
-import { HTMLString } from "../type/UtilTypes"
+import { HTMLString, SystemStatus } from "../type/UtilTypes"
 import { convertToSql } from "../util/SqlUtils"
 import {
   exQuerySelectorStrict,
+  querySelector,
   querySelectorAll,
   querySelectorStrict,
 } from "./QuerySelector"
@@ -24,6 +26,17 @@ import { getDocument } from "./QuerySelector/Document"
 /**
  * DOMアクセス全般を書く
  */
+
+export const extractSystemStatus = (): SystemStatus => {
+  const statusElm = querySelector(SYSTEM_STATUS_ID)
+  if (statusElm == null) {
+    return "NONE"
+  }
+  if (statusElm.textContent === "INJECTED") {
+    return "INJECTED"
+  }
+  return "NONE"
+}
 
 export const extractTableNameList = (): ReadonlyArray<TableName> => {
   return querySelectorAll(SELECT_TABLE_NAME_QUERY).map((elm) => {
@@ -34,7 +47,13 @@ export const extractTableNameList = (): ReadonlyArray<TableName> => {
   })
 }
 
-export const injectButtonDom = (
+export const injectSystemHtml = (html: HTMLString): void => {
+  const injWrapper = getDocument().createElement("div")
+  injWrapper.innerHTML = html.value
+  querySelectorStrict("body").appendChild(injWrapper)
+}
+
+export const injectButtonDoms = (
   baseHtml: HTMLString,
   targetTableNameList: ReadonlyArray<TableName>,
 ): void => {

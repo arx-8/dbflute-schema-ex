@@ -19,3 +19,9 @@ export const TEXTAREA_ID_SUFFIX = "_show_sql_textarea"
 export const INJECT_HTML_REPLACE_BUTTON_ID = "BUTTON_ID"
 export const INJECT_HTML_REPLACE_DIALOG_ID = "DIALOG_ID"
 export const INJECT_HTML_REPLACE_TEXTAREA_ID = "TEXTAREA_ID"
+
+export const BUTTON_CLS = "dbflute-schema-ex_button"
+export const DIALOG_CLS = "dbflute-schema-ex_dialog"
+export const TEXTAREA_CLS = "dbflute-schema-ex_textarea"
+
+export const SYSTEM_STATUS_ID = "dbflute-schema-ex_system-status"

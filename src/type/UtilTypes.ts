@@ -9,3 +9,5 @@ interface Branded<T extends string> {
  * Usage: const html = { value: "<div></div>" } as HTMLString
  */
 export type HTMLString = Branded<"HTMLString">
+
+export type SystemStatus = "NONE" | "INJECTED"
