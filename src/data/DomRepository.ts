@@ -30,11 +30,14 @@ import { getDocument } from "./QuerySelector/Document"
  */
 
 export const extractSystemStatus = (): SystemStatus => {
-  const statusElm = querySelector(SYSTEM_STATUS_ID)
+  const statusElm = querySelector(`#${SYSTEM_STATUS_ID}`)
   if (statusElm == null) {
     return "NONE"
   }
-  if (statusElm.textContent === "INJECTED") {
+  if (statusElm.textContent == null) {
+    return "NONE"
+  }
+  if (statusElm.textContent.trim() === "INJECTED") {
     return "INJECTED"
   }
   return "NONE"
