@@ -10,22 +10,22 @@ import {
   INJECT_HTML_REPLACE_SHOW_BUTTON_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
   SYSTEM_STATUS_ID,
-} from "../constant/Constants"
+} from "../../constant/Constants"
 import {
   getSelectColumnsQuery,
   SELECT_TABLE_NAME_QUERY,
-} from "../constant/SchemaHtml"
-import { ColumnName } from "../domain/ColumnName"
-import { TableName } from "../domain/TableName"
-import { HTMLString, SystemStatus } from "../type/UtilTypes"
-import { convertToSql } from "../util/SqlUtils"
+} from "../../constant/SchemaHtml"
+import { ColumnName } from "../../domain/ColumnName"
+import { TableName } from "../../domain/TableName"
+import { HTMLString, SystemStatus } from "../../type/UtilTypes"
+import { convertToSql } from "../../util/SqlUtils"
 import {
   exQuerySelectorStrict,
   querySelector,
   querySelectorAll,
   querySelectorStrict,
-} from "./QuerySelector"
-import { getDocument } from "./QuerySelector/Document"
+} from "../QuerySelector"
+import { getDocument } from "../QuerySelector/Document"
 
 /**
  * DOMアクセス全般を書く
