@@ -1,4 +1,4 @@
-const main = () => {
+const main = (): void => {
   // TODO
   // table名取り出す
   // 各table定義にbuttonを追加する
