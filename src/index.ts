@@ -1,5 +1,5 @@
 import { extractTableNameList, injectButtonDom } from "./data/DomRepository"
-import { showButtonHtml } from "./presentation/InjectHtml"
+import { showButtonHtml } from "./presentation/ShowButton"
 
 const main = (): void => {
   // table名取り出す

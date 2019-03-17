@@ -6,9 +6,19 @@ import {
   INJECT_HTML_REPLACE_DIALOG_ID,
   INJECT_HTML_REPLACE_TEXTAREA_ID,
 } from "../constant/Constants"
+import {
+  getSelectColumnsQuery,
+  SELECT_TABLE_NAME_QUERY,
+} from "../constant/SchemaHtml"
+import { ColumnName } from "../domain/ColumnName"
 import { TableName } from "../domain/TableName"
 import { HTMLString } from "../type/UtilTypes"
-import { querySelectorAll, querySelectorStrict } from "./QuerySelector"
+import { convertToSql } from "../util/SqlUtils"
+import {
+  exQuerySelectorStrict,
+  querySelectorAll,
+  querySelectorStrict,
+} from "./QuerySelector"
 import { getDocument } from "./QuerySelector/Document"
 
 /**
@@ -16,7 +26,7 @@ import { getDocument } from "./QuerySelector/Document"
  */
 
 export const extractTableNameList = (): ReadonlyArray<TableName> => {
-  return querySelectorAll("#table-list-body td.namecell").map((elm) => {
+  return querySelectorAll(SELECT_TABLE_NAME_QUERY).map((elm) => {
     if (elm.textContent == null) {
       throw new Error("elm.textContent は必ず存在するはず")
     }
@@ -34,20 +44,23 @@ export const injectButtonDom = (
 
     // IDとイベントの付与
     {
-      const button = injWrapper.querySelector(
+      const button = exQuerySelectorStrict(
+        injWrapper,
         `#${INJECT_HTML_REPLACE_BUTTON_ID}`,
       ) as HTMLButtonElement
       button.id = getButtonId(tableName)
       button.onclick = createClickEvent(tableName)
     }
     {
-      const dialog = injWrapper.querySelector(
+      const dialog = exQuerySelectorStrict(
+        injWrapper,
         `#${INJECT_HTML_REPLACE_DIALOG_ID}`,
       ) as HTMLDialogElement
       dialog.id = getDialogId(tableName)
     }
     {
-      const textarea = injWrapper.querySelector(
+      const textarea = exQuerySelectorStrict(
+        injWrapper,
         `#${INJECT_HTML_REPLACE_TEXTAREA_ID}`,
       ) as HTMLTextAreaElement
       textarea.id = getTextareaId(tableName)
@@ -60,11 +73,37 @@ export const injectButtonDom = (
 
 const createClickEvent = (tableName: TableName): (() => void) => {
   return () => {
-    // TODO
-    // - テーブル自身のカラムを取り出す
-    // - それらをSELECT文に構築する
-    // - モーダル表示する
-    // - モーダル内のtextareaに、SELECT文を表示する
-    console.log(tableName.value)
+    // テーブル自身のカラムを取り出す
+    const colList = extractTableColumnList(tableName)
+
+    // それらをSELECT文に構築する
+    const sql = convertToSql(tableName.value, colList.map((c) => c.value))
+
+    // モーダル内のtextareaに、SELECT文を表示する
+    {
+      const textarea = querySelectorStrict(
+        `#${getTextareaId(tableName)}`,
+      ) as HTMLTextAreaElement
+      textarea.value = sql
+    }
+
+    // モーダル表示する
+    {
+      const modal = querySelectorStrict(
+        `#${getDialogId(tableName)}`,
+      ) as HTMLDialogElement
+      modal.show()
+    }
   }
+}
+
+const extractTableColumnList = (
+  tableName: TableName,
+): ReadonlyArray<ColumnName> => {
+  return querySelectorAll(getSelectColumnsQuery(tableName)).map((elm) => {
+    if (elm.textContent == null) {
+      throw new Error("elm.textContent は必ず存在するはず")
+    }
+    return new ColumnName(elm.textContent)
+  })
 }
