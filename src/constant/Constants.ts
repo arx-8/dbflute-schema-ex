@@ -1,5 +1,7 @@
 import { TableName } from "../domain/TableName"
 
+export const APP_NAME = "dbflute-schema-ex"
+
 export const getButtonId = (tableName: TableName): string => {
   return `${tableName.value}${BUTTON_ID_SUFFIX}`
 }
@@ -20,8 +22,8 @@ export const INJECT_HTML_REPLACE_BUTTON_ID = "BUTTON_ID"
 export const INJECT_HTML_REPLACE_DIALOG_ID = "DIALOG_ID"
 export const INJECT_HTML_REPLACE_TEXTAREA_ID = "TEXTAREA_ID"
 
-export const BUTTON_CLS = "dbflute-schema-ex_button"
-export const DIALOG_CLS = "dbflute-schema-ex_dialog"
-export const TEXTAREA_CLS = "dbflute-schema-ex_textarea"
+export const BUTTON_CLS = `${APP_NAME}_button`
+export const DIALOG_CLS = `${APP_NAME}_dialog`
+export const TEXTAREA_CLS = `${APP_NAME}_textarea`
 
-export const SYSTEM_STATUS_ID = "dbflute-schema-ex_system-status"
+export const SYSTEM_STATUS_ID = `${APP_NAME}_system-status`
