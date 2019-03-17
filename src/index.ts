@@ -1,13 +1,12 @@
+import { extractTableNameList, injectButtonDom } from "./data/DomRepository"
+import { showButtonHtml } from "./presentation/InjectHtml"
+
 const main = (): void => {
-  // TODO
   // table名取り出す
+  const tableNameList = extractTableNameList()
+
   // 各table定義にbuttonを追加する
-  // 各ボタンのイベントを定義する
-  // // イベント
-  // // - テーブル自身のカラムを取り出す
-  // // - それらをSELECT文に構築する
-  // // - モーダル表示する
-  // // - モーダル内のtextareaに、SELECT文を表示する
+  injectButtonDom(showButtonHtml, tableNameList)
 }
 
 // entry point
