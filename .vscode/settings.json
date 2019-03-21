@@ -16,6 +16,10 @@
     "editor.formatOnType": true,
     "editor.tabSize": 2
   },
+  /**
+   * UI/DX関係
+   */
+  "workbench.colorTheme": "Default Dark+",
   "search.exclude": {
     "**/dist": true
   },
