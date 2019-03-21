@@ -1,28 +1,35 @@
 export const convertToSql = (
   tableName: string,
-  columnNames: Array<string>,
+  columnNames: string[],
 ): string => {
   let result = ""
   const indent = "  "
-  let s = 0
-  const AS_name = convertToAliasName(tableName)
+  const asName = convertToAliasName(tableName)
   result += "SELECT"
-  for (let index = 0; index < columnNames.length; index++) {
-    const cName = columnNames[s]
+  for (let index = 0; index < columnNames.length; index += 1) {
+    const cName = columnNames[index]
     if (index === columnNames.length - 1) {
-      result += "\n" + indent + AS_name + "." + cName
+      result += `\n${indent}${asName}.${cName}`
     } else {
-        result += "\n" + indent + AS_name + "." + cName + ","
+      result += `\n${indent}${asName}.${cName},`
     }
-    s += 1
   }
 
-  result += "\n" + "FROM" + "\n" + indent + tableName + " AS " + AS_name + "\n;"
+  result += `\nFROM\n${indent}${tableName} AS ${asName}\n;`
 
   return result
 }
 
-export const convertToAliasName = (tableName: string) => {
-  // TODO
-  return "m"
+export const convertToAliasName = (tableName: string): string => {
+  let omission = ""
+  const ts = tableName.split("")
+
+  omission += ts[0]
+  for (let index = 0; index < tableName.length; index += 1) {
+    if (ts[index] === "_") {
+      omission += ts[index + 1]
+    }
+  }
+
+  return omission
 }
