@@ -20,5 +20,14 @@
    * UI/DX関係
    */
   "workbench.colorTheme": "Default Dark+",
+  "search.exclude": {
+    "**/dist": true
+  },
+  "files.watcherExclude": {
+    "**/dist/*": true
+  },
+  /**
+   * Extensions
+   */
   "prettier.eslintIntegration": true
 }
