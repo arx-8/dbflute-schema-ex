@@ -15,8 +15,8 @@ import {
   getSelectColumnsQuery,
   SELECT_TABLE_NAME_QUERY,
 } from "../../constant/SchemaHtml"
-import { ColumnName } from "../../domain/ColumnName"
-import { TableName } from "../../domain/TableName"
+import { ColumnName } from "../../domain/model/ColumnName"
+import { TableName } from "../../domain/model/TableName"
 import { HTMLString, SystemStatus } from "../../type/UtilTypes"
 import { convertToSql } from "../../util/SqlUtils"
 import {
