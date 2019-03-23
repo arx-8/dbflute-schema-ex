@@ -1,6 +1,4 @@
 import * as DomRepository from "."
-import { showButtonHtml } from "../../presentation/ShowButton"
-import { systemHtml } from "../../presentation/SystemHtml"
 import { createMockDocumentBy } from "../../__test__/Helper"
 import * as Document from "../QuerySelector/Document"
 import { testHtml } from "./index.test.data"
@@ -35,9 +33,7 @@ describe("DomRepository tests", () => {
       expect(sut.extractSystemStatus()).toEqual("NONE")
 
       // ## Act ##
-      const tableNameList = sut.extractTableNameList()
-      sut.injectSystemHtml(systemHtml)
-      sut.injectButtonDoms(showButtonHtml, tableNameList)
+      sut.injectApp()
 
       // After inject
       // ## Assert ##

@@ -17,6 +17,8 @@ import {
 } from "../../constant/SchemaHtml"
 import { ColumnName } from "../../domain/model/ColumnName"
 import { TableName } from "../../domain/model/TableName"
+import { showButtonHtml } from "../../presentation/ShowButton"
+import { systemHtml } from "../../presentation/SystemHtml"
 import { HTMLString, SystemStatus } from "../../type/UtilTypes"
 import { convertToSql } from "../../util/SqlUtils"
 import {
@@ -53,7 +55,22 @@ export const extractSystemStatus = (): SystemStatus => {
   return "NONE"
 }
 
-export const extractTableNameList = (): ReadonlyArray<TableName> => {
+/**
+ * このAppのhtmlを生成し、DOMへ注入する
+ * (Service/Controller層に書くべきだが、面倒なのでとりあえずここに実装)
+ */
+export const injectApp = (): void => {
+  // table名取り出す
+  const tableNameList = extractTableNameList()
+
+  // このアプリの管理に必要なhtmlを注入
+  injectSystemHtml(systemHtml)
+
+  // 各table定義にbuttonを注入
+  injectButtonDoms(showButtonHtml, tableNameList)
+}
+
+const extractTableNameList = (): ReadonlyArray<TableName> => {
   return querySelectorAll(SELECT_TABLE_NAME_QUERY).map((elm) => {
     if (elm.textContent == null) {
       throw new Error("elm.textContent は必ず存在するはず")
@@ -62,13 +79,13 @@ export const extractTableNameList = (): ReadonlyArray<TableName> => {
   })
 }
 
-export const injectSystemHtml = (html: HTMLString): void => {
+const injectSystemHtml = (html: HTMLString): void => {
   const injWrapper = getDocument().createElement("div")
   injWrapper.innerHTML = html.value
   querySelectorStrict("body").appendChild(injWrapper)
 }
 
-export const injectButtonDoms = (
+const injectButtonDoms = (
   baseHtml: HTMLString,
   targetTableNameList: ReadonlyArray<TableName>,
 ): void => {
