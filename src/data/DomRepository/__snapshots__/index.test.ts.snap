@@ -12299,6 +12299,9 @@ select max(login.LOGIN_DATETIME)
   padding: 4px 8px;
   background-color: #b3ffe9;
 }
+.dbflute-schema-ex_show_button {
+  vertical-align: middle;
+}
 .dbflute-schema-ex_close-button {
   background-color: #ffc2c6;
 }

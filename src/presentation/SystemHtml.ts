@@ -53,6 +53,9 @@ export const systemHtml: HTMLString = {
   padding: 4px 8px;
   background-color: #b3ffe9;
 }
+.${SHOW_BUTTON_CLS} {
+  vertical-align: middle;
+}
 .${CLOSE_BUTTON_CLS} {
   background-color: #ffc2c6;
 }
