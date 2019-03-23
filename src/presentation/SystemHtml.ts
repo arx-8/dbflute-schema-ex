@@ -23,6 +23,7 @@ export const systemHtml: HTMLString = {
   border: 0;
   border-radius: 0.6rem;
   box-shadow: 0 0 1em black;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 .${DIALOG_INNER_CLS} {
   display: flex;
@@ -31,6 +32,8 @@ export const systemHtml: HTMLString = {
 .${TEXTAREA_CLS} {
   width: 400px;
   height: 300px;
+  background-color: inherit;
+  color: white;
 }
 #${SYSTEM_STATUS_ID} {
   display: none;
@@ -48,7 +51,7 @@ export const systemHtml: HTMLString = {
   cursor: pointer;
   overflow: visible;
   padding: 4px 8px;
-  background-color: #cefff1;
+  background-color: #b3ffe9;
 }
 .${CLOSE_BUTTON_CLS} {
   background-color: #ffc2c6;
