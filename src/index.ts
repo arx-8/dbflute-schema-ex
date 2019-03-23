@@ -1,12 +1,8 @@
 import {
   extractSystemStatus,
-  extractTableNameList,
-  injectButtonDoms,
-  injectSystemHtml,
+  injectApp,
   isValidAppTarget,
 } from "./data/DomRepository"
-import { showButtonHtml } from "./presentation/ShowButton"
-import { systemHtml } from "./presentation/SystemHtml"
 import { debugLog } from "./util/Logger"
 
 const main = (): void => {
@@ -22,14 +18,7 @@ const main = (): void => {
     return
   }
 
-  // table名取り出す
-  const tableNameList = extractTableNameList()
-
-  // このアプリの管理に必要なhtmlを注入
-  injectSystemHtml(systemHtml)
-
-  // 各table定義にbuttonを注入
-  injectButtonDoms(showButtonHtml, tableNameList)
+  injectApp()
 
   debugLog("injected")
 }

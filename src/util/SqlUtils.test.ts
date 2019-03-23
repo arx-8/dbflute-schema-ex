@@ -43,10 +43,8 @@ describe("convertToAliasName", () => {
   test("_を含まないパターン", () => {
     // ## Arrange ##
     const tableName = "purchase"
-
     // ## Act ##
     const result = convertToAliasName(tableName)
-
     // ## Assert ##
     expect(result).toEqual("p")
   })
@@ -54,10 +52,8 @@ describe("convertToAliasName", () => {
   test("_を1つ含むパターン", () => {
     // ## Arrange ##
     const tableName = "service_rank"
-
     // ## Act ##
     const result = convertToAliasName(tableName)
-
     // ## Assert ##
     expect(result).toEqual("sr")
   })
@@ -65,11 +61,36 @@ describe("convertToAliasName", () => {
   test("_を2つ以上含むパターン", () => {
     // ## Arrange ##
     const tableName = "a_a_b_b_b_c"
-
     // ## Act ##
     const result = convertToAliasName(tableName)
-
     // ## Assert ##
     expect(result).toEqual("aabbbc")
+  })
+
+  test("特殊なテーブル名のパターン: 先頭に_", () => {
+    // ## Arrange ##
+    const tableName = "_table_name"
+    // ## Act ##
+    const result = convertToAliasName(tableName)
+    // ## Assert ##
+    expect(result).toEqual("tn")
+  })
+
+  test("特殊なテーブル名のパターン: 末尾に_", () => {
+    // ## Arrange ##
+    const tableName = "table_name_"
+    // ## Act ##
+    const result = convertToAliasName(tableName)
+    // ## Assert ##
+    expect(result).toEqual("tn")
+  })
+
+  test("特殊なテーブル名のパターン: _の連続あり", () => {
+    // ## Arrange ##
+    const tableName = "long__table_______name"
+    // ## Act ##
+    const result = convertToAliasName(tableName)
+    // ## Assert ##
+    expect(result).toEqual("ltn")
   })
 })

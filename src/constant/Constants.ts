@@ -1,4 +1,4 @@
-import { TableName } from "../domain/TableName"
+import { TableName } from "../domain/model/TableName"
 
 export const APP_NAME = "dbflute-schema-ex"
 
