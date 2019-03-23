@@ -34,6 +34,8 @@ export const querySelectorStrict = <T extends HTMLElement>(
 ): T => {
   const founds = querySelectorAll(selector)
   if (founds.length === 1) {
+    // なぜか型が合わないため無視
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return founds[0] as any
   }
   throw new Error(`Logic Failure: "${selector}" is always 1 element exists`)
@@ -45,6 +47,8 @@ export const exQuerySelectorStrict = <T extends HTMLElement>(
 ): T => {
   const founds = dom.querySelectorAll(selector)
   if (founds.length === 1) {
+    // なぜか型が合わないため無視
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return founds[0] as any
   }
   throw new Error(`Logic Failure: "${selector}" is always 1 element exists`)
