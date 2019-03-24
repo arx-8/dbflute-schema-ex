@@ -28,16 +28,15 @@ export const convertToAliasName = (tableName: string): string => {
     return tableName[0]
   }
 
-  let omission = ""
-
   const words = tableName.split(SEPARATER_CHAR)
-  for (const word of words) {
+  const omission = words.reduce((prev, next) => {
+    if (next.length > 0) {
+      return prev + next[0]
+    }
     // 空文字「""」の場合、word[0]を連結すると"undefined"という文字になってしまう
     // そのため、空文字の場合は連結をスキップする
-    if (word.length > 0) {
-      omission += word[0]
-    }
-  }
+    return prev
+  }, "")
 
   return omission
 }
