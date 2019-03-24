@@ -15,7 +15,7 @@ export const convertToSql = (
     }
   }
 
-  result += `\nFROM\n${indent}${tableName} AS ${asName}\n;`
+  result += `\nFROM\n${indent}${tableName} AS ${asName}\nLIMIT 100\n;`
 
   return result
 }

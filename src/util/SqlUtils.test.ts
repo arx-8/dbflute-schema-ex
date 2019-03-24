@@ -8,6 +8,7 @@ SELECT
   m.member_id
 FROM
   member AS m
+LIMIT 100
 ;`)
   })
 
@@ -19,6 +20,7 @@ SELECT
   m.member_name
 FROM
   member AS m
+LIMIT 100
 ;`)
   })
 
@@ -35,6 +37,7 @@ SELECT
   atn.pppp_account
 FROM
   any_table_name AS atn
+LIMIT 100
 ;`)
   })
 })
