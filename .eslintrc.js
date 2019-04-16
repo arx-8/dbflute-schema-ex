@@ -74,6 +74,11 @@ module.exports = {
     "no-useless-constructor": "off",
     "no-empty-function": "off",
 
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { allowExpressions: true },
+    ],
+
     /**
      * ts で許容されてるルールは、ts側を優先して許可する
      */

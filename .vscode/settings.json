@@ -6,15 +6,17 @@
   "eslint.autoFixOnSave": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false,
     "editor.formatOnType": false
   },
   "[typescript]": {
     // 今はまだTS + 拡張機能ESLintが正しく動作しないため、拡張機能Prettierに任せる
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 2
+    "editor.formatOnType": true
   },
   /**
    * UI/DX関係
