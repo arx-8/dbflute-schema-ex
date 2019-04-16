@@ -21,6 +21,13 @@ module.exports = {
     "import/first": "off",
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
+    "no-restricted-globals": [
+      "error",
+      {
+        name: "document",
+        message: "Use getDocument().",
+      },
+    ],
     "no-restricted-properties": [
       "error",
       {
