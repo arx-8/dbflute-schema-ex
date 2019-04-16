@@ -1,23 +1,29 @@
+/** SQL文のインデント */
+const IND = "  "
+
 export const convertToSql = (
   tableName: string,
   columnNames: ReadonlyArray<string>,
 ): string => {
-  let result = ""
-  const indent = "  "
-  const asName = convertToAliasName(tableName)
-  result += "SELECT"
-  for (let index = 0; index < columnNames.length; index += 1) {
-    const cName = columnNames[index]
-    if (index === columnNames.length - 1) {
-      result += `\n${indent}${asName}.${cName}`
-    } else {
-      result += `\n${indent}${asName}.${cName},`
-    }
-  }
+  const alias = convertToAliasName(tableName)
 
-  result += `\nFROM\n${indent}${tableName} AS ${asName}\nLIMIT 100\n;`
+  const colsStr = columnNames
+    .map((cName) => `${IND}${alias}.${cName}`)
+    .join(",\n")
 
-  return result
+  const sqlStr = `\
+SELECT
+${colsStr}
+FROM
+  ${tableName} AS ${alias}
+--     LEFT OUTER JOIN xxx AS x
+--       on ${alias}.xxx = x.xxx
+-- WHERE
+-- ORDER BY
+LIMIT 100
+;`
+
+  return sqlStr
 }
 
 export const convertToAliasName = (tableName: string): string => {
