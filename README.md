@@ -17,13 +17,8 @@
 
 Visual Studio Code
 
-#### Required Extensions
-
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=amatiasq.sort-imports)
-
 ## Ref.
 
-<https://github.com/Microsoft/TypeScript-Babel-Starter>
-<https://github.com/a-tarasyuk/webpack-typescript-babel>
-<https://teppeis.hatenablog.com/entry/2019/02/typescript-eslint>
+- <https://github.com/Microsoft/TypeScript-Babel-Starter>
+- <https://github.com/a-tarasyuk/webpack-typescript-babel>
+- <https://teppeis.hatenablog.com/entry/2019/02/typescript-eslint>
