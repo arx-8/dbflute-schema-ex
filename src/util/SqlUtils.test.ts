@@ -8,6 +8,10 @@ SELECT
   m.member_id
 FROM
   member AS m
+--     LEFT OUTER JOIN xxx AS x
+--       on m.xxx = x.xxx
+-- WHERE
+-- ORDER BY
 LIMIT 100
 ;`)
   })
@@ -20,6 +24,10 @@ SELECT
   m.member_name
 FROM
   member AS m
+--     LEFT OUTER JOIN xxx AS x
+--       on m.xxx = x.xxx
+-- WHERE
+-- ORDER BY
 LIMIT 100
 ;`)
   })
@@ -37,6 +45,10 @@ SELECT
   atn.pppp_account
 FROM
   any_table_name AS atn
+--     LEFT OUTER JOIN xxx AS x
+--       on atn.xxx = x.xxx
+-- WHERE
+-- ORDER BY
 LIMIT 100
 ;`)
   })
