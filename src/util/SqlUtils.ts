@@ -17,7 +17,7 @@ ${colsStr}
 FROM
   ${tableName} AS ${alias}
 --     LEFT OUTER JOIN xxx AS x
---       on ${alias}.xxx = x.xxx
+--       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
 LIMIT 100

@@ -9,7 +9,7 @@ SELECT
 FROM
   member AS m
 --     LEFT OUTER JOIN xxx AS x
---       on m.xxx = x.xxx
+--       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
 LIMIT 100
@@ -25,7 +25,7 @@ SELECT
 FROM
   member AS m
 --     LEFT OUTER JOIN xxx AS x
---       on m.xxx = x.xxx
+--       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
 LIMIT 100
@@ -46,7 +46,7 @@ SELECT
 FROM
   any_table_name AS atn
 --     LEFT OUTER JOIN xxx AS x
---       on atn.xxx = x.xxx
+--       ON atn.xxx = x.xxx
 -- WHERE
 -- ORDER BY
 LIMIT 100
