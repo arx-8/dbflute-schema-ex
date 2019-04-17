@@ -8,7 +8,7 @@ SELECT
   m.member_id
 FROM
   member AS m
---     LEFT OUTER JOIN x_table AS x
+--     LEFT OUTER JOIN xxx_table AS x
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
@@ -24,7 +24,7 @@ SELECT
   , m.member_name
 FROM
   member AS m
---     LEFT OUTER JOIN x_table AS x
+--     LEFT OUTER JOIN xxx_table AS x
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
@@ -45,7 +45,7 @@ SELECT
   , atn.pppp_account
 FROM
   any_table_name AS atn
---     LEFT OUTER JOIN x_table AS x
+--     LEFT OUTER JOIN xxx_table AS x
 --       ON atn.xxx = x.xxx
 -- WHERE
 -- ORDER BY

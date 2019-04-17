@@ -25,7 +25,7 @@ SELECT
 ${colsStr}
 FROM
   ${schema}${tableName} AS ${alias}
---     LEFT OUTER JOIN x_table AS x
+--     LEFT OUTER JOIN xxx_table AS x
 --       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
