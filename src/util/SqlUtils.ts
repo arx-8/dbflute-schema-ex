@@ -7,16 +7,19 @@ export const convertToSql = (
 ): string => {
   const alias = convertToAliasName(tableName)
 
-  const colsStr = columnNames
-    .map((cName) => `${IND}${alias}.${cName}`)
-    .join(",\n")
+  const colsStr = columnNames.reduce((accum, col, index) => {
+    if (index === 0) {
+      return `${accum}${IND}${alias}.${col}`
+    }
+    return `${accum}\n${IND}, ${alias}.${col}`
+  }, "")
 
   const sqlStr = `\
 SELECT
 ${colsStr}
 FROM
   ${tableName} AS ${alias}
---     LEFT OUTER JOIN xxx AS x
+--     LEFT OUTER JOIN x_table AS x
 --       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
