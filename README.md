@@ -4,12 +4,19 @@
 
 ### Install
 
-1. Open [dist/bookmarklet.txt](https://raw.githubusercontent.com/arx-8/dbflute-schema-ex/master/dist/bookmarklet.txt)
-   - Please don't worry! This is just a (very long) bookmarklet script.
-2. Copy all text
-3. Register as a bookmark
+1. Copy bookmaklet text
+   - Mac
+     ```sh
+     # Copy directly from GET bookmarklet text to clipboard
+     curl https://raw.githubusercontent.com/arx-8/dbflute-schema-ex/master/dist/bookmarklet.txt | pbcopy
+     ```
+   - Other OS
+     1. Open [dist/bookmarklet.txt](https://raw.githubusercontent.com/arx-8/dbflute-schema-ex/master/dist/bookmarklet.txt)
+        - Please don't worry! This is just a (very long) bookmarklet script.
+     2. Copy all text
+2. Register as a bookmark
    - Ref. [ブックマークレットの登録方法 - Qiita](https://qiita.com/aqril_1132/items/b5f9040ccb8cbc705d04)
-4. Have a good development!
+3. Have a good development!
 
 ### Uninstall
 
