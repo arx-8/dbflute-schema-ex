@@ -194,3 +194,23 @@ const extractTableColumnList = (
     return new ColumnName(elm.textContent)
   })
 }
+
+/**
+ * スキーマ名を返す。
+ * Schema HTMLに埋まってる decomment 用 JavaScript を利用させてもらっている。
+ * そのため、予告なく壊れる可能性の高い実装である。
+ */
+export const getSchemaName = (): string | null => {
+  const { DecommentUtil } = window as any
+
+  if (
+    DecommentUtil == null ||
+    typeof DecommentUtil !== "object" ||
+    DecommentUtil.getSchemaName == null ||
+    typeof DecommentUtil.getSchemaName !== "function"
+  ) {
+    return null
+  }
+
+  return DecommentUtil.getSchemaName()
+}
