@@ -8,7 +8,7 @@ SELECT
   m.member_id
 FROM
   member AS m
---     LEFT OUTER JOIN xxx AS x
+--     LEFT OUTER JOIN x_table AS x
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
@@ -20,11 +20,11 @@ LIMIT 100
     const result = convertToSql("member", ["member_id", "member_name"])
     expect(result).toEqual(`\
 SELECT
-  m.member_id,
-  m.member_name
+  m.member_id
+  , m.member_name
 FROM
   member AS m
---     LEFT OUTER JOIN xxx AS x
+--     LEFT OUTER JOIN x_table AS x
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
@@ -40,12 +40,12 @@ LIMIT 100
     ])
     expect(result).toEqual(`\
 SELECT
-  atn.pppp_id,
-  atn.pppp_name,
-  atn.pppp_account
+  atn.pppp_id
+  , atn.pppp_name
+  , atn.pppp_account
 FROM
   any_table_name AS atn
---     LEFT OUTER JOIN xxx AS x
+--     LEFT OUTER JOIN x_table AS x
 --       ON atn.xxx = x.xxx
 -- WHERE
 -- ORDER BY
