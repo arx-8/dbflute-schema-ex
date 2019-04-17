@@ -1,3 +1,5 @@
+import { getSchemaName } from "../data/DomRepository"
+
 /** SQL文のインデント */
 const IND = "  "
 
@@ -14,12 +16,16 @@ export const convertToSql = (
     return `${accum}\n${IND}, ${alias}.${col}`
   }, "")
 
+  // スキーマ名を取得できる場合は、SQLに足してやる
+  const maybeSchema = getSchemaName()
+  const schema = maybeSchema == null ? "" : `${maybeSchema}.`
+
   const sqlStr = `\
 SELECT
 ${colsStr}
 FROM
-  ${tableName} AS ${alias}
---     LEFT OUTER JOIN x_table AS x
+  ${schema}${tableName} AS ${alias}
+--     LEFT OUTER JOIN xxx_table AS x
 --       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
