@@ -156,10 +156,10 @@ const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
 
     // モーダル表示する
     {
-      const modal = querySelectorStrict(
+      const dialog = querySelectorStrict(
         `#${getDialogId(tableName)}`,
       ) as HTMLDialogElement
-      modal.show()
+      dialog.show()
     }
   }
 }
@@ -167,10 +167,10 @@ const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
 const createCloseBtnEvent = (tableName: TableName): (() => void) => {
   return () => {
     // モーダルを閉じる
-    const modal = querySelectorStrict(
+    const dialog = querySelectorStrict(
       `#${getDialogId(tableName)}`,
     ) as HTMLDialogElement
-    modal.close()
+    dialog.close()
   }
 }
 
