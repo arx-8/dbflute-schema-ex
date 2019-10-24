@@ -29,7 +29,7 @@ FROM
 --       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
-LIMIT 100
+LIMIT 10
 ;`
 
   return sqlStr

@@ -12,7 +12,7 @@ FROM
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
-LIMIT 100
+LIMIT 10
 ;`)
   })
 
@@ -28,7 +28,7 @@ FROM
 --       ON m.xxx = x.xxx
 -- WHERE
 -- ORDER BY
-LIMIT 100
+LIMIT 10
 ;`)
   })
 
@@ -49,7 +49,7 @@ FROM
 --       ON atn.xxx = x.xxx
 -- WHERE
 -- ORDER BY
-LIMIT 100
+LIMIT 10
 ;`)
   })
 })
