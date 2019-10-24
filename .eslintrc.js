@@ -5,7 +5,12 @@ module.exports = {
     "plugin:jest/recommended",
     "plugin:prettier/recommended",
   ],
-  plugins: ["@typescript-eslint", "jest"],
+  plugins: [
+    "@typescript-eslint",
+    "jest",
+    // CircleCI で warn も検知可能にするため、全て error にする
+    "only-error",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
