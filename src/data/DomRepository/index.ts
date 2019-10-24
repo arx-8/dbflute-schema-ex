@@ -201,7 +201,7 @@ const extractTableColumnList = (
  * そのため、予告なく壊れる可能性の高い実装である。
  */
 export const getSchemaName = (): string | null => {
-  const { DecommentUtil } = window as any
+  const { DecommentUtil } = window
 
   if (
     DecommentUtil == null ||
