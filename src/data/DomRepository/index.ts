@@ -154,11 +154,17 @@ const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
       textarea.value = sql
     }
 
-    // モーダル表示する
+    // モーダル表示 + イベントの定義
     {
       const dialog = querySelectorStrict(
         `#${getDialogId(tableName)}`,
       ) as HTMLDialogElement
+      dialog.onkeydown = (e) => {
+        // ESC キーで閉じる
+        if (e.keyCode === 27) {
+          dialog.close()
+        }
+      }
       dialog.show()
     }
   }
