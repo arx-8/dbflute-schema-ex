@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
   "dependencies": {
     "jsdom": "14.0.0"
   },
