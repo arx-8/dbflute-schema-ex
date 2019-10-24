@@ -11,9 +11,9 @@ export const convertToSql = (
 
   const colsStr = columnNames.reduce((accum, col, index) => {
     if (index === 0) {
-      return `${accum}${IND}${alias}.${col}`
+      return `${accum}${IND}${alias}.${col} AS "${alias}.${col}"`
     }
-    return `${accum}\n${IND}, ${alias}.${col}`
+    return `${accum}\n${IND}, ${alias}.${col} AS "${alias}.${col}"`
   }, "")
 
   // スキーマ名を取得できる場合は、SQLに足してやる
@@ -29,7 +29,7 @@ FROM
 --       ON ${alias}.xxx = x.xxx
 -- WHERE
 -- ORDER BY
-LIMIT 100
+LIMIT 10
 ;`
 
   return sqlStr

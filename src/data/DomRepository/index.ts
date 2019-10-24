@@ -154,12 +154,18 @@ const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
       textarea.value = sql
     }
 
-    // モーダル表示する
+    // モーダル表示 + イベントの定義
     {
-      const modal = querySelectorStrict(
+      const dialog = querySelectorStrict(
         `#${getDialogId(tableName)}`,
       ) as HTMLDialogElement
-      modal.show()
+      dialog.onkeydown = (e) => {
+        // ESC キーで閉じる
+        if (e.keyCode === 27) {
+          dialog.close()
+        }
+      }
+      dialog.show()
     }
   }
 }
@@ -167,10 +173,10 @@ const createShowSqlBtnEvent = (tableName: TableName): (() => void) => {
 const createCloseBtnEvent = (tableName: TableName): (() => void) => {
   return () => {
     // モーダルを閉じる
-    const modal = querySelectorStrict(
+    const dialog = querySelectorStrict(
       `#${getDialogId(tableName)}`,
     ) as HTMLDialogElement
-    modal.close()
+    dialog.close()
   }
 }
 
