@@ -1,7 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DomRepository tests whole process inject Before/After 1`] = `
-
 <h1>
   Schema for maihamadb (h2)
 </h1>
@@ -12312,5 +12311,4 @@ select max(login.LOGIN_DATETIME)
     </div>
   </div>
 </div>
-
 `;

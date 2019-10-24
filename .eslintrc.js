@@ -26,6 +26,7 @@ module.exports = {
     "import/first": "off",
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
+    "no-alert": "off",
     "no-restricted-globals": [
       "error",
       {
