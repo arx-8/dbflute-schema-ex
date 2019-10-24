@@ -1,0 +1,52 @@
+version: 2
+
+jobs:
+  # Check code (UnitTest, Lint)
+  check_code:
+    docker:
+      - image: circleci/node:12.9.1
+    steps:
+      # @see https://circleci.com/docs/2.0/caching/#source-caching
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Revision }}
+            # fallback to using the latest cache if no exact match is found
+            - source-v1-
+      - checkout
+      - save_cache:
+          key: source-v1-{{ .Revision }}
+          paths:
+            - .git
+
+      # @see https://circleci.com/docs/2.0/caching/#npm-node
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-v1-{{ checksum "package-lock.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - node-v1-
+      - run: npm install
+      - save_cache:
+          paths:
+            # https://docs.npmjs.com/cli/cache.html#cache
+            - ~/.npm
+          key: node-v1-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: lint
+          command: |
+            npm run lint-dry
+      - run:
+          name: test
+          command: |
+            npm run test-ci
+
+workflows:
+  version: 2
+  feature-ci:
+    jobs:
+      - check_code:
+          filters:
+            branches:
+              only:
+                - /feature\/.*/
