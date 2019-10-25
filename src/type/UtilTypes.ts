@@ -1,13 +1,11 @@
-interface Branded<T extends string> {
-  type: T
-  value: string
-}
+/**
+ * e.g.) type BrandName = Brand<string, "BrandName">
+ */
+type Brand<K, T> = K & { __brand: T }
 
 /**
  * コンパイルレベルで基本型と区別するための幽霊型
- *
- * Usage: const html = { value: "<div></div>" } as HTMLString
  */
-export type HTMLString = Branded<"HTMLString">
+export type HTMLString = Brand<string, "HTMLString">
 
 export type SystemStatus = "NONE" | "INJECTED"

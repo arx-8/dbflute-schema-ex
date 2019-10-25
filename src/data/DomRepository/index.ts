@@ -81,7 +81,7 @@ const extractTableNameList = (): ReadonlyArray<TableName> => {
 
 const injectSystemHtml = (html: HTMLString): void => {
   const injWrapper = getDocument().createElement("div")
-  injWrapper.innerHTML = html.value
+  injWrapper.innerHTML = html
   querySelectorStrict("body").appendChild(injWrapper)
 }
 
@@ -91,7 +91,7 @@ const injectButtonDoms = (
 ): void => {
   targetTableNameList.forEach((tableName) => {
     const injWrapper = getDocument().createElement("span")
-    injWrapper.innerHTML = baseHtml.value
+    injWrapper.innerHTML = baseHtml
 
     // IDとイベントの付与
     {

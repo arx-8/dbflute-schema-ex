@@ -11,7 +11,7 @@ export {}
 
 declare global {
   interface Window {
-    DecommentUtil: {
+    DecommentUtil?: {
       getSchemaName?: () => string
     }
   }
