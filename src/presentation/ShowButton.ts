@@ -17,8 +17,7 @@ import { HTMLString } from "../type/UtilTypes"
 /**
  * 各button
  */
-export const showButtonHtml: HTMLString = {
-  value: `
+export const showButtonHtml = `
 <button id="${INJECT_HTML_REPLACE_SHOW_BUTTON_ID}" class="${SHOW_BUTTON_CLS}">
   Show SQL
 </button>
@@ -31,6 +30,4 @@ export const showButtonHtml: HTMLString = {
     <textarea id="${INJECT_HTML_REPLACE_TEXTAREA_ID}" class="${TEXTAREA_CLS}"></textarea>
   </div>
 </dialog>
-`,
-  type: "HTMLString",
-}
+` as HTMLString

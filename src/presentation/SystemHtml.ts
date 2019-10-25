@@ -14,8 +14,7 @@ import { HTMLString } from "../type/UtilTypes"
  * 1度だけ注入するhtml
  * このアプリを管理するための値やcss
  */
-export const systemHtml: HTMLString = {
-  value: `
+export const systemHtml = `
 <style>
 .${DIALOG_CLS} {
   margin-left: 16px;
@@ -64,6 +63,4 @@ export const systemHtml: HTMLString = {
 <div id="${SYSTEM_STATUS_ID}">
   INJECTED
 <div>
-  `,
-  type: "HTMLString",
-}
+` as HTMLString
